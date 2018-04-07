@@ -6,6 +6,7 @@
 #include "Robot.h"
 #include "actions\Move.h"
 #include "actions\Action.h"
+#include "ActionContainer.h"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -44,8 +45,6 @@ public:
 private:	
 	Robot * robot_;	
 
-	GLboolean actionsCompleted_;
-	GLuint currentActionIndex_;
-	std::vector<Action*> actions_;
+	ActionContainer actions_;
 
 };

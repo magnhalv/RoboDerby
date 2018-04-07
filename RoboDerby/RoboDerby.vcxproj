@@ -129,6 +129,7 @@
     <ClCompile Include="engine\src\Texture2D.cpp" />
     <ClCompile Include="lib\glad.c" />
     <ClCompile Include="lib\stb_image.cpp" />
+    <ClCompile Include="src\ActionContainer.cpp" />
     <ClCompile Include="src\actions\Action.cpp" />
     <ClCompile Include="src\actions\Move.cpp" />
     <ClCompile Include="src\Game.cpp" />
@@ -145,6 +146,7 @@
     <ClInclude Include="engine\include\Shader.h" />
     <ClInclude Include="engine\include\SpriteRenderer.h" />
     <ClInclude Include="engine\include\Texture2D.h" />
+    <ClInclude Include="src\ActionContainer.h" />
     <ClInclude Include="src\actions\Action.h" />
     <ClInclude Include="src\actions\Move.h" />
     <ClInclude Include="src\Game.h" />

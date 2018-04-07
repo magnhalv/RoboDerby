@@ -1,7 +1,7 @@
 #include "Game.h"
 
 Game::Game(GLuint width, GLuint height)
-	: State(GAME_ACTIVE), Keys(), Width(width), Height(height), actions_(0)
+	: State(GAME_ACTIVE), Keys(), Width(width), Height(height)
 {}
 
 Game::~Game()
@@ -37,14 +37,10 @@ void Game::Init()
 	Board = new GameBoard(); 
 	Board->load("one", 50);
 		
-	actions_.push_back(new Move(*robot_, Board->getTile(2, 2)));
-	actions_.push_back(new Move(*robot_, Board->getTile(5, 2)));
-	actions_.push_back(new Move(*robot_, Board->getTile(1, 1)));
-
-	currentActionIndex_ = 0;
-	actionsCompleted_ = false;
-
-
+	actions_.add(new Move(*robot_, Board->getTile(2, 2)));
+	actions_.add(new Move(*robot_, Board->getTile(5, 2)));
+	actions_.add(new Move(*robot_, Board->getTile(1, 1)));
+	actions_.start();
 }
 
 void Game::DoCollisions()
@@ -57,23 +53,13 @@ void Game::ProcessInput(GLfloat dt)
 
 void Game::Update(GLfloat dt)
 {
-	if (!actionsCompleted_) {
-		if (actions_[currentActionIndex_]->isComplete()) {
-			currentActionIndex_++;
-			if (currentActionIndex_ == actions_.size()) {
-				actionsCompleted_ = true;
-			}
-		}
-		else {
-			actions_[currentActionIndex_]->update(dt);
-		}
-	}		
+	actions_.update(dt);
 }
 
 void Game::Render()
 {
 	auto background = ResourceManager::GetTexture("background");
-	RectangleRenderer->DrawSprite(background, glm::vec2(0, 0), glm::vec2(Width, Height), 0.0f);
-	Board->draw(*RectangleRenderer);
+	RectangleRenderer->DrawSprite(background, glm::vec2(0, 0), glm::vec2(Width, Height), 0.0f);	
+	Board->draw(*RectangleRenderer);	
 	robot_->draw(*TriangleRenderer);
 }
