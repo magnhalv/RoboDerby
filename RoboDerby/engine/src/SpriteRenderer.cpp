@@ -1,10 +1,9 @@
 #include "../include/SpriteRenderer.h"
 
-
-SpriteRenderer::SpriteRenderer(Shader &shader)
+SpriteRenderer::SpriteRenderer(Shader &shader, Shape shape)
 {
 	this->shader = shader;
-	this->InitRenderData();
+	this->InitRenderData(shape);
 }
 
 
@@ -36,10 +35,9 @@ void SpriteRenderer::DrawSprite(Texture2D &texture, glm::vec2 position,  glm::ve
 	glBindVertexArray(0);
 }
 
-void SpriteRenderer::InitRenderData() {
-	// Configure VAO/VBO
-	GLuint VBO;
-	GLfloat vertices[] = {
+void SpriteRenderer::InitRenderData(Shape shape) {
+
+	GLfloat square[] = {
 		// Pos      // Tex
 		0.0f, 1.0f, 0.0f, 1.0f,
 		1.0f, 0.0f, 1.0f, 0.0f,
@@ -50,11 +48,33 @@ void SpriteRenderer::InitRenderData() {
 		1.0f, 0.0f, 1.0f, 0.0f
 	};
 
+	GLfloat triangle[] = {
+		// Pos      // Tex
+		0.5f, 1.0f, 0.5f, 1.0f,
+		1.0f, 0.0f, 1.0f, 0.0f,
+		0.0f, 0.0f, 0.0f, 0.0f
+	};
+
+	// Configure VAO/VBO
+	GLuint VBO;
+	GLfloat *vertices;
+	GLint size;
+
+	if (shape == SQUARE) {
+		vertices = square;	
+		size = sizeof(square);
+	}
+	else {
+		vertices = triangle;
+		size = sizeof(triangle);
+	}
+
+
 	glGenVertexArrays(1, &this->quadVAO);
 	glGenBuffers(1, &VBO);
 
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, size, vertices, GL_STATIC_DRAW);
 
 	glBindVertexArray(this->quadVAO);
 	glEnableVertexAttribArray(0);

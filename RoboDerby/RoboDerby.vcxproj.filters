@@ -25,6 +25,15 @@
     <Filter Include="Engine\Source Files">
       <UniqueIdentifier>{dc5e33c2-ad45-458a-b276-d2046741f5a2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Levels">
+      <UniqueIdentifier>{f7d52807-f17a-401d-98e7-48bf0ba6103a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders">
+      <UniqueIdentifier>{8684f36a-3d54-4242-b7b5-6a26f7ee801e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Textures">
+      <UniqueIdentifier>{27b1d266-e0aa-4d7c-b952-c6a4b9958d27}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lib\glad.c">
@@ -54,6 +63,12 @@
     <ClCompile Include="engine\src\GameObject.cpp">
       <Filter>Engine\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameBoard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\include\Camera.h">
@@ -80,5 +95,54 @@
     <ClInclude Include="engine\include\GameObject.h">
       <Filter>Engine\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameBoard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\levels\four.lvl">
+      <Filter>Resource Files\Levels</Filter>
+    </None>
+    <None Include="resources\levels\one.lvl">
+      <Filter>Resource Files\Levels</Filter>
+    </None>
+    <None Include="resources\levels\three.lvl">
+      <Filter>Resource Files\Levels</Filter>
+    </None>
+    <None Include="resources\levels\two.lvl">
+      <Filter>Resource Files\Levels</Filter>
+    </None>
+    <None Include="resources\shaders\sprite.frag">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="resources\shaders\sprite.vs">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\textures\awesomeface.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="resources\textures\background.jpg">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="resources\textures\block.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="resources\textures\block_solid.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="resources\textures\paddle.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="resources\textures\particle.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="resources\textures\wood_container.jpg">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>

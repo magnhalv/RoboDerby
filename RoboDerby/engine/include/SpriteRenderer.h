@@ -7,10 +7,14 @@
 #include "Shader.h";
 #include "Texture2D.h"
 
+enum Shape {
+	SQUARE, TRIANGLE
+};
+
 class SpriteRenderer
 {
 public:
-	SpriteRenderer(Shader &shader);
+	SpriteRenderer(Shader &shader, Shape shape);
 	~SpriteRenderer();
 
 	void DrawSprite(Texture2D &texture, glm::vec2 position,
@@ -20,5 +24,6 @@ private:
 	Shader shader;
 	GLuint quadVAO;
 
-	void InitRenderData();
+	void InitRenderData(Shape shape);	
+
 };

@@ -129,6 +129,8 @@
     <ClCompile Include="engine\src\Texture2D.cpp" />
     <ClCompile Include="lib\glad.c" />
     <ClCompile Include="lib\stb_image.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\GameBoard.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +142,25 @@
     <ClInclude Include="engine\include\Shader.h" />
     <ClInclude Include="engine\include\SpriteRenderer.h" />
     <ClInclude Include="engine\include\Texture2D.h" />
+    <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\GameBoard.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\levels\four.lvl" />
+    <None Include="resources\levels\one.lvl" />
+    <None Include="resources\levels\three.lvl" />
+    <None Include="resources\levels\two.lvl" />
+    <None Include="resources\shaders\sprite.frag" />
+    <None Include="resources\shaders\sprite.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\textures\awesomeface.png" />
+    <Image Include="resources\textures\background.jpg" />
+    <Image Include="resources\textures\block.png" />
+    <Image Include="resources\textures\block_solid.png" />
+    <Image Include="resources\textures\paddle.png" />
+    <Image Include="resources\textures\particle.png" />
+    <Image Include="resources\textures\wood_container.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
