@@ -20,6 +20,8 @@ public:
 	std::vector<GameObject> tiles_;
 	const GLuint TILE_DIM = 40;
 
+
+	GameObject getTile(GLuint x, GLuint y) { return tiles_[width_*y + x]; }
 	GLuint getWidth() { return width_; }
 	GLuint getHeight() { return height_; }
 

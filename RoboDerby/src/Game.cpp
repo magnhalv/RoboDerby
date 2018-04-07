@@ -37,6 +37,9 @@ void Game::Init()
 	Board = new GameBoard(); 
 	Board->load("one", 50);
 
+	auto tile = Board->getTile(2, 2);
+	move_ = new Move(*robot_, tile);
+
 
 }
 
@@ -50,6 +53,9 @@ void Game::ProcessInput(GLfloat dt)
 
 void Game::Update(GLfloat dt)
 {
+	if (!move_->isComplete()) {
+		move_->update(dt);
+	}
 }
 
 void Game::Render()

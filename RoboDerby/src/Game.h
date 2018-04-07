@@ -4,6 +4,7 @@
 #include "../engine/include/SpriteRenderer.h"
 #include "GameBoard.h"
 #include "Robot.h"
+#include "actions\Move.h"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -28,9 +29,7 @@ public:
 
 	SpriteRenderer *TriangleRenderer;
 	SpriteRenderer *RectangleRenderer;
-	GameBoard *Board;
-
-	Robot *robot_;
+	GameBoard *Board;	
 
 	Game(GLuint width, GLuint height);
 	~Game();
@@ -42,4 +41,6 @@ public:
 	void Update(GLfloat dt);
 	void Render();
 private:	
+	Robot * robot_;
+	Move *move_;
 };

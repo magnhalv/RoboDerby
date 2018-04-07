@@ -34,6 +34,12 @@
     <Filter Include="Resource Files\Textures">
       <UniqueIdentifier>{27b1d266-e0aa-4d7c-b952-c6a4b9958d27}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\actions">
+      <UniqueIdentifier>{894245a7-c1e9-44a8-b9f0-2f2d7797da19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\actions">
+      <UniqueIdentifier>{9306fb38-5208-4f29-a1d3-b4a504bc5d48}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lib\glad.c">
@@ -72,6 +78,12 @@
     <ClCompile Include="src\Robot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\actions\Action.cpp">
+      <Filter>Source Files\actions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\actions\Move.cpp">
+      <Filter>Source Files\actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\include\Camera.h">
@@ -106,6 +118,12 @@
     </ClInclude>
     <ClInclude Include="src\Robot.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\actions\Action.h">
+      <Filter>Header Files\actions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\actions\Move.h">
+      <Filter>Header Files\actions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
