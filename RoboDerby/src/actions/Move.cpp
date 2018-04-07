@@ -9,39 +9,18 @@ Move::~Move() {
 
 void Move::update(GLfloat dt) {
 
-	GLfloat velocityX = 50.0f*dt;
+	glm::vec2 velocity(50.0f*dt, 50.0f*dt);
 
-	GLfloat diff = robot_.getPosition().x - tile_.Position.x;
+	glm::vec2 diff = robot_.getPosition() - tile_.Position;
 
-	GLfloat diffX = abs(diff);
-	bool left = diff > 0.0f;
+	velocity = glm::min(velocity, glm::abs(diff));
 
-	if (diffX < velocityX)
-		velocityX = diffX;
+	glm::vec2 direction(diff.x < 0, diff.y < 0);
 
-	if (left)
-		velocityX *= -1.0f;
+	velocity.x = direction.x*velocity.x;
+	velocity.y = direction.y*velocity.y;
 
-	GLfloat newX = robot_.getPosition().x + velocityX;
-	
-	//x
-	GLfloat velocityY = 50.0f*dt;
-
-	diff = robot_.getPosition().y - tile_.Position.y;
-
-	GLfloat diffY = abs(diff);
-	left = diff > 0.0f;
-
-	if (diffY < velocityY)
-		velocityY = diffY;
-
-	if (left)
-		velocityY *= -1.0f;
-
-	GLfloat newY = robot_.getPosition().y + velocityY;
-
-
-	glm::vec2 newPos(newX, newY);
+	glm::vec2 newPos = robot_.getPosition() + velocity;
 	robot_.setPosition(newPos);
 }
 
