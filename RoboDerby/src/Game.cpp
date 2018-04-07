@@ -6,6 +6,7 @@ Game::Game(GLuint width, GLuint height)
 
 Game::~Game()
 {
+	delete RectangleRenderer;
 	delete TriangleRenderer;
 	delete Board;
 }
