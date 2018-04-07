@@ -6,7 +6,7 @@ GameBoard::GameBoard() {
 GameBoard::~GameBoard() {
 }
 
-void GameBoard::Load(const std::string name, GLuint tileDim) {
+void GameBoard::load(const std::string name, GLuint tileDim) {
 	std::string path = "resources/levels/" + name + ".lvl";
 	std::fstream levelFile(path);
 
@@ -35,18 +35,18 @@ void GameBoard::Load(const std::string name, GLuint tileDim) {
 	}
 }
 
-void GameBoard::Draw(SpriteRenderer &renderer) {
-	for (GameObject &tile : Tiles) {
+void GameBoard::draw(SpriteRenderer &renderer) {
+	for (GameObject &tile : tiles_) {
 		tile.Draw(renderer);
 	}
 }
 
 void GameBoard::init_(std::vector<std::vector<GLuint>> tiles, GLuint tileDim) {
-	GLuint height = tiles.size();
-	GLuint width = tiles[0].size();
+	height_ = tiles.size();
+	width_ = tiles[0].size();
 
-	for (GLuint y = 0; y < height; y++) {
-		for (GLuint x = 0; x < width; x++) {
+	for (GLuint y = 0; y < height_; y++) {
+		for (GLuint x = 0; x < width_; x++) {
 
 			glm::vec2 pos(tileDim * x, tileDim * y);
 			glm::vec2 size(tileDim, tileDim);
@@ -56,7 +56,7 @@ void GameBoard::init_(std::vector<std::vector<GLuint>> tiles, GLuint tileDim) {
 				glm::vec3(0.8f, 0.8f, 0.7f)
 			);
 
-			Tiles.push_back(obj);
+			tiles_.push_back(obj);
 		}
 	}
 }

@@ -132,6 +132,7 @@
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\GameBoard.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Robot.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\include\Camera.h" />
@@ -144,6 +145,7 @@
     <ClInclude Include="engine\include\Texture2D.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\GameBoard.h" />
+    <ClInclude Include="src\Robot.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\levels\four.lvl" />

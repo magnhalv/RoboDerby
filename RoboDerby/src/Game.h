@@ -3,6 +3,7 @@
 #include "../engine/include/ResourceMananger.h"
 #include "../engine/include/SpriteRenderer.h"
 #include "GameBoard.h"
+#include "Robot.h"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -28,6 +29,8 @@ public:
 	SpriteRenderer *TriangleRenderer;
 	SpriteRenderer *RectangleRenderer;
 	GameBoard *Board;
+
+	Robot *robot_;
 
 	Game(GLuint width, GLuint height);
 	~Game();

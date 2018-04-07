@@ -19,6 +19,7 @@ void Game::Init()
 	//Load Textures
 	ResourceManager::LoadTexture("resources/textures/background.jpg", GL_FALSE, "background");
 	ResourceManager::LoadTexture("resources/textures/block_solid.png", GL_FALSE, "block_solid");
+	ResourceManager::LoadTexture("resources/textures/block.png", GL_FALSE, "block");
 
 	// Configure shaders
 	glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(Width), static_cast<GLfloat>(Height), 0.0f, -1.0f, 1.0f);
@@ -30,8 +31,11 @@ void Game::Init()
 	TriangleRenderer = new SpriteRenderer(spriteShader, TRIANGLE);
 	RectangleRenderer = new SpriteRenderer(spriteShader, RECTANGLE);
 
+	auto robotTexture = ResourceManager::GetTexture("block");
+	robot_ = new Robot(glm::vec2(0, 0), glm::vec2(50, 50), robotTexture, glm::vec3(0, 0.5f, 0.5f));
+
 	Board = new GameBoard(); 
-	Board->Load("one", 50);
+	Board->load("one", 50);
 
 
 }
@@ -52,5 +56,6 @@ void Game::Render()
 {
 	auto background = ResourceManager::GetTexture("background");
 	RectangleRenderer->DrawSprite(background, glm::vec2(0, 0), glm::vec2(Width, Height), 0.0f);
-	Board->Draw(*RectangleRenderer);
+	Board->draw(*RectangleRenderer);
+	robot_->draw(*TriangleRenderer);
 }
