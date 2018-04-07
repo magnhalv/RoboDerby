@@ -15,7 +15,7 @@ void Move::update(GLfloat dt) {
 
 	velocity = glm::min(velocity, glm::abs(diff));
 
-	glm::vec2 direction(diff.x < 0, diff.y < 0);
+	glm::vec2 direction(diff.x < 0 ? 1 : -1, diff.y < 0 ? 1 : -1);
 
 	velocity.x = direction.x*velocity.x;
 	velocity.y = direction.y*velocity.y;
