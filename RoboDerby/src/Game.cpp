@@ -6,7 +6,7 @@ Game::Game(GLuint width, GLuint height)
 
 Game::~Game()
 {
-	delete Renderer;
+	delete TriangleRenderer;
 	delete Board;
 }
 
@@ -26,7 +26,8 @@ void Game::Init()
 
 	//Create renderer
 	auto spriteShader = ResourceManager::GetShader("sprite");
-	Renderer = new SpriteRenderer(spriteShader, TRIANGLE);
+	TriangleRenderer = new SpriteRenderer(spriteShader, TRIANGLE);
+	RectangleRenderer = new SpriteRenderer(spriteShader, RECTANGLE);
 
 	Board = new GameBoard(); 
 	Board->Load("one", 50);
@@ -49,6 +50,6 @@ void Game::Update(GLfloat dt)
 void Game::Render()
 {
 	auto background = ResourceManager::GetTexture("background");
-	Renderer->DrawSprite(background, glm::vec2(0, 0), glm::vec2(Width, Height), 0.0f);
-	Board->Draw(*Renderer);
+	RectangleRenderer->DrawSprite(background, glm::vec2(0, 0), glm::vec2(Width, Height), 0.0f);
+	Board->Draw(*RectangleRenderer);
 }

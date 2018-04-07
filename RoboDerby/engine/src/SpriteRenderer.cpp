@@ -60,7 +60,7 @@ void SpriteRenderer::InitRenderData(Shape shape) {
 	GLfloat *vertices;
 	GLint size;
 
-	if (shape == SQUARE) {
+	if (shape == RECTANGLE) {
 		vertices = square;	
 		size = sizeof(square);
 	}

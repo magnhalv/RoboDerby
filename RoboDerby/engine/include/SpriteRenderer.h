@@ -8,7 +8,7 @@
 #include "Texture2D.h"
 
 enum Shape {
-	SQUARE, TRIANGLE
+	RECTANGLE, TRIANGLE
 };
 
 class SpriteRenderer

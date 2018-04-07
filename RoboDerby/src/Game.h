@@ -25,7 +25,8 @@ public:
 	GLuint	   Width, Height;
 	GLuint Level;
 
-	SpriteRenderer *Renderer;
+	SpriteRenderer *TriangleRenderer;
+	SpriteRenderer *RectangleRenderer;
 	GameBoard *Board;
 
 	Game(GLuint width, GLuint height);
