@@ -11,7 +11,6 @@ Robot::~Robot() {
 void Robot::setPosition(glm::vec2 position) {
 	Position.x = position.x;
 	Position.y = position.y;
-	std::cout << Position.x << ", " << Position.y << std::endl;
 }
 
 glm::vec2 Robot::getPosition() {

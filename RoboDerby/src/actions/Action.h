@@ -1,10 +1,13 @@
 #pragma once
+
+#include <glad\glad.h>
+
 class Action {
 public:
-	Action();
-	~Action();
+	Action() {};
+	~Action() {};
 
-	virtual void update() = 0;
+	virtual void update(GLfloat dt) = 0;
 	virtual bool isComplete() = 0;
 };
 

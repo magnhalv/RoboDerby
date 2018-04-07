@@ -5,6 +5,7 @@
 #include "GameBoard.h"
 #include "Robot.h"
 #include "actions\Move.h"
+#include "actions\Action.h"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -41,6 +42,10 @@ public:
 	void Update(GLfloat dt);
 	void Render();
 private:	
-	Robot * robot_;
-	Move *move_;
+	Robot * robot_;	
+
+	GLboolean actionsCompleted_;
+	GLuint currentActionIndex_;
+	std::vector<Action*> actions_;
+
 };

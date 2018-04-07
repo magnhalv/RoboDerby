@@ -4,8 +4,9 @@
 
 #include "../Robot.h"
 #include "../../engine/include/GameObject.h"
+#include "Action.h"
 
-class Move {
+class Move : public Action {
 public:
 	Move(Robot &robot, GameObject &tile);
 	~Move();

@@ -1,7 +1,7 @@
 #include "Game.h"
 
 Game::Game(GLuint width, GLuint height)
-	: State(GAME_ACTIVE), Keys(), Width(width), Height(height)
+	: State(GAME_ACTIVE), Keys(), Width(width), Height(height), actions_(0)
 {}
 
 Game::~Game()
@@ -36,9 +36,13 @@ void Game::Init()
 
 	Board = new GameBoard(); 
 	Board->load("one", 50);
+		
+	actions_.push_back(new Move(*robot_, Board->getTile(2, 2)));
+	actions_.push_back(new Move(*robot_, Board->getTile(5, 2)));
+	actions_.push_back(new Move(*robot_, Board->getTile(1, 1)));
 
-	auto tile = Board->getTile(2, 2);
-	move_ = new Move(*robot_, tile);
+	currentActionIndex_ = 0;
+	actionsCompleted_ = false;
 
 
 }
@@ -53,9 +57,17 @@ void Game::ProcessInput(GLfloat dt)
 
 void Game::Update(GLfloat dt)
 {
-	if (!move_->isComplete()) {
-		move_->update(dt);
-	}
+	if (!actionsCompleted_) {
+		if (actions_[currentActionIndex_]->isComplete()) {
+			currentActionIndex_++;
+			if (currentActionIndex_ == actions_.size()) {
+				actionsCompleted_ = true;
+			}
+		}
+		else {
+			actions_[currentActionIndex_]->update(dt);
+		}
+	}		
 }
 
 void Game::Render()
