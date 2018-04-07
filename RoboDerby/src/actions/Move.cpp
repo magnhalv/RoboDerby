@@ -9,7 +9,7 @@ Move::~Move() {
 
 void Move::update(GLfloat dt) {
 
-	GLfloat velocityX = 5.0f;
+	GLfloat velocityX = 50.0f*dt;
 
 	GLfloat diff = robot_.getPosition().x - tile_.Position.x;
 
@@ -25,7 +25,7 @@ void Move::update(GLfloat dt) {
 	GLfloat newX = robot_.getPosition().x + velocityX;
 	
 	//x
-	GLfloat velocityY = 5.0f;
+	GLfloat velocityY = 50.0f*dt;
 
 	diff = robot_.getPosition().y - tile_.Position.y;
 
