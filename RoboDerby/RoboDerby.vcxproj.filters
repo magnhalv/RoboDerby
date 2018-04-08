@@ -87,6 +87,9 @@
     <ClCompile Include="src\ActionContainer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\actions\Rotate.cpp">
+      <Filter>Source Files\actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\include\Camera.h">
@@ -130,6 +133,9 @@
     </ClInclude>
     <ClInclude Include="src\ActionContainer.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\actions\Rotate.h">
+      <Filter>Header Files\actions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
