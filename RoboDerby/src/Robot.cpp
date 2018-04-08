@@ -8,14 +8,6 @@ Robot::Robot(glm::vec2 position, glm::vec2 size, Texture2D sprite, glm::vec3 col
 Robot::~Robot() {
 }
 
-void Robot::setPosition(glm::vec2 position) {
-	Position.x = position.x;
-	Position.y = position.y;
-}
-
-glm::vec2 Robot::getPosition() {
-	return Position;
-}
 
 void Robot::draw(SpriteRenderer &renderer) {
 	renderer.DrawSprite(this->Sprite, this->Position, this->Size, this->Rotation, this->Color);

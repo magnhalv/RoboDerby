@@ -11,6 +11,7 @@ class Rotate : public Action {
 	bool isComplete();
 
 private:
+	GLboolean clockwise;
 	GLfloat final_;
 	GLfloat current_;
 	Robot &robot_;

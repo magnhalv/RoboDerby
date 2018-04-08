@@ -11,7 +11,7 @@ void Move::update(GLfloat dt) {
 
 	glm::vec2 velocity(50.0f*dt, 50.0f*dt);
 
-	glm::vec2 diff = robot_.getPosition() - tile_.Position;
+	glm::vec2 diff = robot_.getPosition() - tile_.getPosition();
 
 	velocity = glm::min(velocity, glm::abs(diff));
 
@@ -25,5 +25,5 @@ void Move::update(GLfloat dt) {
 }
 
 bool Move::isComplete() {	
-	return robot_.getPosition() == tile_.Position;
+	return robot_.getPosition() == tile_.getPosition();
 }
