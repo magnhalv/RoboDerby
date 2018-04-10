@@ -16,7 +16,6 @@ void GameBoard::load(const std::string name, GLuint tileDim) {
 
 	if (levelFile) {
 		while (std::getline(levelFile, line)) {
-			std::cout << line << std::endl;
 			std::istringstream sstream(line);
 			std::vector<GLuint> row;
 			GLuint tileCode;
@@ -37,7 +36,7 @@ void GameBoard::load(const std::string name, GLuint tileDim) {
 
 void GameBoard::draw(SpriteRenderer &renderer) {
 	for (GameObject &tile : tiles_) {
-		tile.Draw(renderer);
+		tile.draw(renderer);
 	}
 }
 

@@ -5,6 +5,7 @@
 #include "GameBoard.h"
 #include "Robot.h"
 #include "actions\Move.h"
+#include "actions\Rotate.h"
 #include "actions\Action.h"
 #include "ActionContainer.h"
 

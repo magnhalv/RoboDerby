@@ -32,12 +32,13 @@ void Game::Init()
 	RectangleRenderer = new SpriteRenderer(spriteShader, RECTANGLE);
 
 	auto robotTexture = ResourceManager::GetTexture("block");
-	robot_ = new Robot(glm::vec2(0, 0), glm::vec2(50, 50), robotTexture, glm::vec3(0, 0.5f, 0.5f));
+	robot_ = new Robot(glm::vec2(0, 0), glm::vec2(40, 40), robotTexture, glm::vec3(0, 0.5f, 0.5f));
 
 	Board = new GameBoard(); 
 	Board->load("one", 50);
 		
 	actions_.add(new Move(*robot_, Board->getTile(2, 2)));
+	actions_.add(new Rotate(*robot_, 180.0f));
 	actions_.add(new Move(*robot_, Board->getTile(5, 2)));
 	actions_.add(new Move(*robot_, Board->getTile(1, 1)));
 	actions_.start();
