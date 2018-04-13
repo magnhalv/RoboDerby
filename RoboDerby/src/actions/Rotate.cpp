@@ -2,7 +2,7 @@
 
 Rotate::Rotate(Robot &robot, GLfloat degrees) : robot_(robot), final_(degrees), current_(0) {
 	GLint direction = degrees < 0 ? 1 : -1;
-	rotationVelocity_ = direction * 0.5f;	
+	rotationVelocity_ = direction * 120.0f;	
 }
 
 Rotate::~Rotate() {
@@ -10,8 +10,8 @@ Rotate::~Rotate() {
 
 void Rotate::update(GLfloat dt) {
 	if (isComplete()) return;	
-	current_ += abs(rotationVelocity_);		
-	robot_.setRotation(robot_.getRotation() + rotationVelocity_);
+	current_ += abs(rotationVelocity_*dt);		
+	robot_.setRotation(robot_.getRotation() + (rotationVelocity_*dt));
 }
 
 bool Rotate::isComplete() {
