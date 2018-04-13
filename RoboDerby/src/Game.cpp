@@ -32,15 +32,14 @@ void Game::Init()
 	RectangleRenderer = new SpriteRenderer(spriteShader, RECTANGLE);
 
 	auto robotTexture = ResourceManager::GetTexture("block");
-	robot_ = new Robot(glm::vec2(0, 0), glm::vec2(40, 40), robotTexture, glm::vec3(0, 0.5f, 0.5f));
+	robots_.push_back(new Robot(glm::vec2(0, 0), glm::vec2(ROBOT_SIZE, ROBOT_SIZE), robotTexture, glm::vec3(0, 0.5f, 0.5f)));
+	robots_.push_back(new Robot(glm::vec2(0, TILE_SIZE), glm::vec2(ROBOT_SIZE, ROBOT_SIZE), robotTexture, glm::vec3(0, 0.5f, 0.5f)));
 
 	Board = new GameBoard(); 
-	Board->load("one", 50);
-		
-	actions_.add(new Move(*robot_, Board->getTile(2, 2)));
-	actions_.add(new Rotate(*robot_, 180.0f));
-	actions_.add(new Move(*robot_, Board->getTile(5, 2)));
-	actions_.add(new Move(*robot_, Board->getTile(1, 1)));
+	Board->load("one", TILE_SIZE);
+	
+	actions_.add(new Rotate(*robots_[1], 180.0f));
+	actions_.add(new Push(*robots_[0], Board->getTile(0, 1), *robots_[1], Board->getTile(0, 2)));	
 	actions_.start();
 }
 
@@ -62,5 +61,9 @@ void Game::Render()
 	auto background = ResourceManager::GetTexture("background");
 	RectangleRenderer->DrawSprite(background, glm::vec2(0, 0), glm::vec2(Width, Height), 0.0f);	
 	Board->draw(*RectangleRenderer);	
-	robot_->draw(*TriangleRenderer);
+
+	for (auto robot : robots_) {
+		robot->draw(*TriangleRenderer);
+	}
+	
 }

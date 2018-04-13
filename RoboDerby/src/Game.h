@@ -7,6 +7,7 @@
 #include "actions\Move.h"
 #include "actions\Rotate.h"
 #include "actions\Action.h"
+#include "actions\Push.h"
 #include "ActionContainer.h"
 
 #include <glad/glad.h>
@@ -44,8 +45,11 @@ public:
 	void Update(GLfloat dt);
 	void Render();
 private:	
-	Robot * robot_;	
+	std::vector<Robot*> robots_;	
 
 	ActionContainer actions_;
+
+	const GLuint TILE_SIZE = 50;
+	const GLuint ROBOT_SIZE = 40;
 
 };

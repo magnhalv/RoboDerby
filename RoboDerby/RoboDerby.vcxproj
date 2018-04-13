@@ -139,6 +139,7 @@
     <ClCompile Include="src\ActionContainer.cpp" />
     <ClCompile Include="src\actions\Action.cpp" />
     <ClCompile Include="src\actions\Move.cpp" />
+    <ClCompile Include="src\actions\Push.cpp" />
     <ClCompile Include="src\actions\Rotate.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\GameBoard.cpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="src\ActionContainer.h" />
     <ClInclude Include="src\actions\Action.h" />
     <ClInclude Include="src\actions\Move.h" />
+    <ClInclude Include="src\actions\Push.h" />
     <ClInclude Include="src\actions\Rotate.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\GameBoard.h" />
