@@ -2,6 +2,7 @@
 
 #include "../engine/include/ResourceMananger.h"
 #include "../engine/include/SpriteRenderer.h"
+#include "../engine/include/TextRenderer.h"
 #include "GameBoard.h"
 #include "Robot.h"
 #include "actions\Move.h"
@@ -27,13 +28,12 @@ class Game
 {
 public:
 	GameState  State;
-	GLboolean  Keys[1024];
-	GLuint	   Width, Height;
+	GLboolean  Keys[1024];	
 	GLuint Level;
 
 	SpriteRenderer *TriangleRenderer;
 	SpriteRenderer *RectangleRenderer;
-	GameBoard *Board;	
+	GameBoard *Board;		
 
 	Game(GLuint width, GLuint height);
 	~Game();
@@ -45,11 +45,14 @@ public:
 	void Update(GLfloat dt);
 	void Render();
 private:	
+
+	TextRenderer * textRenderer_;
+
 	std::vector<Robot*> robots_;	
 
 	ActionContainer actions_;
 
+	GLuint screenWidth_, screenHeight_;
 	const GLuint TILE_SIZE = 50;
 	const GLuint ROBOT_SIZE = 40;
-
 };

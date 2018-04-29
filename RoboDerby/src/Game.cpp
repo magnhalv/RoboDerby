@@ -1,7 +1,7 @@
 #include "Game.h"
 
 Game::Game(GLuint width, GLuint height)
-	: State(GAME_ACTIVE), Keys(), Width(width), Height(height)
+	: State(GAME_ACTIVE), Keys(), screenWidth_(width), screenHeight_(height)
 {}
 
 Game::~Game()
@@ -9,12 +9,14 @@ Game::~Game()
 	delete RectangleRenderer;
 	delete TriangleRenderer;
 	delete Board;
+	delete textRenderer_;
 }
 
 void Game::Init()
 {
 	// Load shaders
-	ResourceManager::LoadShader("resources/shaders/sprite.vs", "resources/shaders/sprite.frag", nullptr, "sprite");
+	ResourceManager::LoadShader("engine/shaders/sprite.vs", "engine/shaders/sprite.frag", nullptr, "sprite");
+	ResourceManager::LoadShader("engine/shaders/character.vs", "engine/shaders/character.frag", nullptr, "character");
 
 	//Load Textures
 	ResourceManager::LoadTexture("resources/textures/background.jpg", GL_FALSE, "background");
@@ -22,7 +24,7 @@ void Game::Init()
 	ResourceManager::LoadTexture("resources/textures/block.png", GL_FALSE, "block");
 
 	// Configure shaders
-	glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(Width), static_cast<GLfloat>(Height), 0.0f, -1.0f, 1.0f);
+	glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(screenWidth_), static_cast<GLfloat>(screenHeight_), 0.0f, -1.0f, 1.0f);
 	ResourceManager::GetShader("sprite").Use().SetInteger("sprite", 0);
 	ResourceManager::GetShader("sprite").SetMatrix4("projection", projection);
 
@@ -30,6 +32,10 @@ void Game::Init()
 	auto spriteShader = ResourceManager::GetShader("sprite");
 	TriangleRenderer = new SpriteRenderer(spriteShader, TRIANGLE);
 	RectangleRenderer = new SpriteRenderer(spriteShader, RECTANGLE);
+	textRenderer_ = new TextRenderer(screenWidth_, screenHeight_);
+	textRenderer_->init();
+	
+
 
 	auto robotTexture = ResourceManager::GetTexture("block");
 	robots_.push_back(new Robot(glm::vec2(0, 0), glm::vec2(ROBOT_SIZE, ROBOT_SIZE), robotTexture, glm::vec3(0, 0.5f, 0.5f)));
@@ -59,11 +65,15 @@ void Game::Update(GLfloat dt)
 void Game::Render()
 {
 	auto background = ResourceManager::GetTexture("background");
-	RectangleRenderer->DrawSprite(background, glm::vec2(0, 0), glm::vec2(Width, Height), 0.0f);	
+	RectangleRenderer->DrawSprite(background, glm::vec2(0, 0), glm::vec2(screenWidth_, screenHeight_), 0.0f);	
 	Board->draw(*RectangleRenderer);	
 
 	for (auto robot : robots_) {
 		robot->draw(*TriangleRenderer);
 	}
 	
+	auto shader = ResourceManager::GetShader("character");
+	textRenderer_->renderText(shader, "This is sample text", 25.0f, 25.0f, 1.0f, glm::vec3(0.5, 0.8f, 0.2f));
+	textRenderer_->renderText(shader, "(C) LearnOpenGL.com", 540.0f, 570.0f, 0.5f, glm::vec3(0.3, 0.7f, 0.9f));
+
 }

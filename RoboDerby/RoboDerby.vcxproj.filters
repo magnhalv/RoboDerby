@@ -28,9 +28,6 @@
     <Filter Include="Resource Files\Levels">
       <UniqueIdentifier>{f7d52807-f17a-401d-98e7-48bf0ba6103a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files\Shaders">
-      <UniqueIdentifier>{8684f36a-3d54-4242-b7b5-6a26f7ee801e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resource Files\Textures">
       <UniqueIdentifier>{27b1d266-e0aa-4d7c-b952-c6a4b9958d27}</UniqueIdentifier>
     </Filter>
@@ -39,6 +36,12 @@
     </Filter>
     <Filter Include="Source Files\actions">
       <UniqueIdentifier>{9306fb38-5208-4f29-a1d3-b4a504bc5d48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Shaders">
+      <UniqueIdentifier>{3baac435-6720-49bd-a77e-0c4f5015cc6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Fonts">
+      <UniqueIdentifier>{94450f18-aad3-4cd1-9f5e-a3442a1bd4cb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +96,9 @@
     <ClCompile Include="src\actions\Push.cpp">
       <Filter>Source Files\actions</Filter>
     </ClCompile>
+    <ClCompile Include="engine\src\TextRenderer.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\include\Camera.h">
@@ -143,6 +149,9 @@
     <ClInclude Include="src\actions\Push.h">
       <Filter>Header Files\actions</Filter>
     </ClInclude>
+    <ClInclude Include="engine\include\TextRenderer.h">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\levels\four.lvl">
@@ -157,11 +166,17 @@
     <None Include="resources\levels\two.lvl">
       <Filter>Resource Files\Levels</Filter>
     </None>
-    <None Include="resources\shaders\sprite.frag">
-      <Filter>Resource Files\Shaders</Filter>
+    <None Include="engine\shaders\character.frag">
+      <Filter>Engine\Shaders</Filter>
     </None>
-    <None Include="resources\shaders\sprite.vs">
-      <Filter>Resource Files\Shaders</Filter>
+    <None Include="engine\shaders\character.vs">
+      <Filter>Engine\Shaders</Filter>
+    </None>
+    <None Include="engine\shaders\sprite.frag">
+      <Filter>Engine\Shaders</Filter>
+    </None>
+    <None Include="engine\shaders\sprite.vs">
+      <Filter>Engine\Shaders</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -186,5 +201,10 @@
     <Image Include="resources\textures\wood_container.jpg">
       <Filter>Resource Files\Textures</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="resources\fonts\arial\arial.ttf">
+      <Filter>Resource Files\Fonts</Filter>
+    </Font>
   </ItemGroup>
 </Project>
