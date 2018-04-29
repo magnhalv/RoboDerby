@@ -14,7 +14,7 @@ Game::~Game()
 void Game::Init()
 {
 	// Load shaders
-	ResourceManager::LoadShader("resources/shaders/sprite.vs", "resources/shaders/sprite.frag", nullptr, "sprite");
+	ResourceManager::LoadShader("engine/shaders/sprite.vs", "engine/shaders/sprite.frag", nullptr, "sprite");
 
 	//Load Textures
 	ResourceManager::LoadTexture("resources/textures/background.jpg", GL_FALSE, "background");
