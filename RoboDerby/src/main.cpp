@@ -51,6 +51,7 @@ int main(int argc, char *argv[])
 	// Start Game within Menu State
 	RoboDerby.State = GAME_ACTIVE;
 
+
 	while (!glfwWindowShouldClose(window))
 	{
 		// Calculate delta time
@@ -67,7 +68,7 @@ int main(int argc, char *argv[])
 		RoboDerby.Update(deltaTime);
 
 		// Render
-		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 		RoboDerby.Render();
 

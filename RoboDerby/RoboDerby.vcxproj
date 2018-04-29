@@ -85,7 +85,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -133,6 +133,7 @@
     <ClCompile Include="engine\src\ResourceMananger.cpp" />
     <ClCompile Include="engine\src\Shader.cpp" />
     <ClCompile Include="engine\src\SpriteRenderer.cpp" />
+    <ClCompile Include="engine\src\TextRenderer.cpp" />
     <ClCompile Include="engine\src\Texture2D.cpp" />
     <ClCompile Include="lib\glad.c" />
     <ClCompile Include="lib\stb_image.cpp" />
@@ -154,6 +155,7 @@
     <ClInclude Include="engine\include\ResourceMananger.h" />
     <ClInclude Include="engine\include\Shader.h" />
     <ClInclude Include="engine\include\SpriteRenderer.h" />
+    <ClInclude Include="engine\include\TextRenderer.h" />
     <ClInclude Include="engine\include\Texture2D.h" />
     <ClInclude Include="src\ActionContainer.h" />
     <ClInclude Include="src\actions\Action.h" />
@@ -165,12 +167,14 @@
     <ClInclude Include="src\Robot.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="engine\shaders\character.frag" />
+    <None Include="engine\shaders\character.vs" />
+    <None Include="engine\shaders\sprite.frag" />
+    <None Include="engine\shaders\sprite.vs" />
     <None Include="resources\levels\four.lvl" />
     <None Include="resources\levels\one.lvl" />
     <None Include="resources\levels\three.lvl" />
     <None Include="resources\levels\two.lvl" />
-    <None Include="resources\shaders\sprite.frag" />
-    <None Include="resources\shaders\sprite.vs" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\textures\awesomeface.png" />
@@ -180,6 +184,9 @@
     <Image Include="resources\textures\paddle.png" />
     <Image Include="resources\textures\particle.png" />
     <Image Include="resources\textures\wood_container.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="resources\fonts\arial\arial.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
