@@ -5,6 +5,7 @@
 #include "../engine/include/TextRenderer.h"
 #include "GameBoard.h"
 #include "Robot.h"
+#include "Card.h"
 #include "actions\Move.h"
 #include "actions\Rotate.h"
 #include "actions\Action.h"
@@ -48,11 +49,15 @@ private:
 
 	TextRenderer * textRenderer_;
 
-	std::vector<Robot*> robots_;	
+	std::vector<Robot*> robots_;
+	std::vector<Card*> cards_;
 
 	ActionContainer actions_;
 
 	GLuint screenWidth_, screenHeight_;
 	const GLuint TILE_SIZE = 50;
 	const GLuint ROBOT_SIZE = 40;
+	
+	const GLuint CARD_WIDTH = 100;
+	const GLuint CARD_HEIGHT = 300;
 };

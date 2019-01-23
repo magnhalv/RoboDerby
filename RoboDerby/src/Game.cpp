@@ -37,9 +37,12 @@ void Game::Init()
 	
 
 
-	auto robotTexture = ResourceManager::GetTexture("block");
-	robots_.push_back(new Robot(glm::vec2(0, 0), glm::vec2(ROBOT_SIZE, ROBOT_SIZE), robotTexture, glm::vec3(0, 0.5f, 0.5f)));
-	robots_.push_back(new Robot(glm::vec2(0, TILE_SIZE), glm::vec2(ROBOT_SIZE, ROBOT_SIZE), robotTexture, glm::vec3(0, 0.5f, 0.5f)));
+	auto blockTexture = ResourceManager::GetTexture("block");
+	robots_.push_back(new Robot(glm::vec2(0, 0), glm::vec2(ROBOT_SIZE, ROBOT_SIZE), blockTexture, glm::vec3(0, 0.5f, 0.5f)));
+	robots_.push_back(new Robot(glm::vec2(0, TILE_SIZE), glm::vec2(ROBOT_SIZE, ROBOT_SIZE), blockTexture, glm::vec3(0, 0.5f, 0.5f)));
+
+	cards_.push_back(new Card(glm::vec2(0, TILE_SIZE), glm::vec2(CARD_HEIGHT, CARD_HEIGHT), blockTexture, glm::vec3(0.5f, 0.5f, 0.5f)));
+
 
 	Board = new GameBoard(); 
 	Board->load("one", TILE_SIZE);
@@ -71,6 +74,10 @@ void Game::Render()
 	for (auto robot : robots_) {
 		robot->draw(*TriangleRenderer);
 	}
+	for (auto card : cards_) {
+		card->draw(*RectangleRenderer);
+	}
+
 	
 	auto shader = ResourceManager::GetShader("character");
 	textRenderer_->renderText(shader, "This is sample text", 25.0f, 25.0f, 1.0f, glm::vec3(0.5, 0.8f, 0.2f));
