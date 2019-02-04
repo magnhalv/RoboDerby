@@ -43,6 +43,7 @@ public:
 	// Game loop
 	void DoCollisions();
 	void ProcessInput(GLfloat dt);
+	void ProcessMouseInput(GLdouble x, GLdouble y);
 	void Update(GLfloat dt);
 	void Render();
 private:	

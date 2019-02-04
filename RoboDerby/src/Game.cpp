@@ -60,6 +60,18 @@ void Game::ProcessInput(GLfloat dt)
 {
 }
 
+void Game::ProcessMouseInput(GLdouble x, GLdouble y) 
+{
+	for (auto card : cards_) {
+		if (card->isInObject(x, y)) {
+			card->setColor(glm::vec3(0.9f, 0.5f, 0.5f));
+		}
+		else {
+			card->setColor(glm::vec3(0.5f, 0.5f, 0.5f));
+		}
+	}
+}
+
 void Game::Update(GLfloat dt)
 {
 	actions_.update(dt);

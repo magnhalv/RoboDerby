@@ -23,8 +23,9 @@ public:
 	glm::vec2 getPosition() { return Position; }
 	glm::vec2 getSize() { return Size; }
 	glm::vec2 getVelocity() { return Velocity; }
-	glm::vec3 getColor() { return Color; }
+	glm::vec3 getColor() { return Color; }	
 	GLfloat getRotation() { return Rotation; }
+	GLboolean isInObject(GLdouble x, GLdouble y);
 private:
 	glm::vec2   Position, Size, Velocity;
 	glm::vec3   Color;
