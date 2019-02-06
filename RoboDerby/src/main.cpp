@@ -10,6 +10,8 @@
 // GLFW function declerations
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 void cursor_position_callback(GLFWwindow* window, double xpos, double ypos);
+void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
+
 
 // The Width of the screen
 const GLuint SCREEN_WIDTH = 800;
@@ -17,6 +19,7 @@ const GLuint SCREEN_WIDTH = 800;
 const GLuint SCREEN_HEIGHT = 600;
 
 double mouse_x, mouse_y;
+bool mouse_pressed;
 
 Game RoboDerby(SCREEN_WIDTH, SCREEN_HEIGHT);
 
@@ -38,6 +41,7 @@ int main(int argc, char *argv[])
 
 	glfwSetKeyCallback(window, key_callback);
 	glfwSetCursorPosCallback(window, cursor_position_callback);
+	glfwSetMouseButtonCallback(window, mouse_button_callback);
 
 	// OpenGL configuration
 	glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -67,7 +71,7 @@ int main(int argc, char *argv[])
 		//deltaTime = 0.001f;
 		// Manage user input
 		RoboDerby.ProcessInput(deltaTime);
-		RoboDerby.ProcessMouseInput(mouse_x, mouse_y);
+		RoboDerby.ProcessMouseInput(mouse_x, mouse_y, mouse_pressed);
 
 		// Update Game state
 		RoboDerby.Update(deltaTime);
@@ -100,6 +104,19 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 			RoboDerby.Keys[key] = GL_FALSE;
 	}
 }
+
+void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
+{
+	if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS) {
+		mouse_pressed = true;
+	}
+	else {
+		mouse_pressed = false;
+	}
+		
+}
+
+
 
 static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos)
 {

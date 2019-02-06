@@ -14,10 +14,6 @@ void GameObject::draw(SpriteRenderer &renderer)
 GLboolean GameObject::isInObject(GLdouble x, GLdouble y)
 {
 	GLboolean isWithinX = ((x >= Position.x) && (x <= (Position.x + Size.x)));
-	GLboolean isWithinY = y >= Position.y && y <= (Position.y + Size.y);
-	std::cout << "Position: " << x << std::endl;
-	std::cout << "Size: " << Size.x + Position.x << std::endl;
-	std::cout << "Mouse Position: " << x << std::endl;
-	std::cout << "Is inside: " << (isWithinX == GL_TRUE) << std::endl;
+	GLboolean isWithinY = y >= Position.y && y <= (Position.y + Size.y);	
 	return isWithinX && isWithinY;
 }

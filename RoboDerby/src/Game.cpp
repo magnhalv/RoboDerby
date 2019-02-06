@@ -60,15 +60,10 @@ void Game::ProcessInput(GLfloat dt)
 {
 }
 
-void Game::ProcessMouseInput(GLdouble x, GLdouble y) 
+void Game::ProcessMouseInput(GLdouble x, GLdouble y, bool isButtonPressed) 
 {
 	for (auto card : cards_) {
-		if (card->isInObject(x, y)) {
-			card->setColor(glm::vec3(0.9f, 0.5f, 0.5f));
-		}
-		else {
-			card->setColor(glm::vec3(0.5f, 0.5f, 0.5f));
-		}
+		card->ProcessMouseInput(x, y, isButtonPressed);		
 	}
 }
 
