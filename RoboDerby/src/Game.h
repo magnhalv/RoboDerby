@@ -47,6 +47,8 @@ public:
 	void Update(GLfloat dt);
 	void Render();
 private:	
+	bool acceptsInput;
+
 
 	TextRenderer * textRenderer_;
 
@@ -59,6 +61,8 @@ private:
 	const GLuint TILE_SIZE = 50;
 	const GLuint ROBOT_SIZE = 40;
 	
-	const GLuint CARD_WIDTH = 100;
-	const GLuint CARD_HEIGHT = 300;
+	const GLuint CARD_WIDTH = 50;
+	const GLuint CARD_HEIGHT = 100;
+
+	void ProcessCards();
 };

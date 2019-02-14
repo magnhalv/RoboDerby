@@ -1,6 +1,6 @@
 #include "Rotate.h"
 
-Rotate::Rotate(Robot &robot, GLfloat degrees) : robot_(robot), final_(degrees), current_(0) {
+Rotate::Rotate(Robot &robot, GLfloat degrees) : robot_(robot), final_(abs(degrees)), current_(0) {
 	GLint direction = degrees < 0 ? 1 : -1;
 	rotationVelocity_ = direction * 120.0f;	
 }
